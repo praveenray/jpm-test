@@ -1,7 +1,7 @@
 package com.jpmc.theater;
 
+import com.jpmc.theater.utils.Utils;
 import lombok.Value;
-import org.apache.commons.lang3.StringUtils;
 
 import java.time.Duration;
 
@@ -33,10 +33,10 @@ public class Movie {
     }
 
     public Movie(String title, String description, Duration runningTime, double ticketPrice, int specialCode) {
-        if (StringUtils.isBlank(title) || title.trim().length() < MIN_TITLE_SIZE || title.trim().length() > MAX_TITLE_SIZE) {
+        if (Utils.isBlank(title) || title.trim().length() < MIN_TITLE_SIZE || title.trim().length() > MAX_TITLE_SIZE) {
             throw new IllegalArgumentException(String.format("Movie Title must be between 1 and %s chars", MAX_TITLE_SIZE));
         }
-        if (StringUtils.isBlank(description) || description.trim().length() < MIN_TITLE_SIZE || description.trim().length() > MAX_TITLE_SIZE) {
+        if (Utils.isBlank(description) || description.trim().length() < MIN_TITLE_SIZE || description.trim().length() > MAX_TITLE_SIZE) {
             throw new IllegalArgumentException(String.format("Movie description must be between 1 and %s chars", MAX_TITLE_SIZE));
         }
 

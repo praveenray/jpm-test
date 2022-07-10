@@ -1,10 +1,13 @@
 package com.jpmc.theater;
 
-import org.apache.commons.lang3.StringUtils;
+import com.jpmc.theater.utils.Utils;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import javax.json.*;
+import javax.json.Json;
+import javax.json.JsonArray;
+import javax.json.JsonObject;
+import javax.json.JsonReader;
 import java.io.StringReader;
 import java.time.Duration;
 import java.time.LocalDate;
@@ -120,7 +123,7 @@ public class TheaterTests {
     @Test
     void scheduledJsonIsGenerated() {
         String str = theater.scheduleToJson();
-        assertFalse(StringUtils.isBlank(str));
+        assertFalse(Utils.isBlank(str));
 
         JsonReader reader = Json.createReader(new StringReader(str));
         JsonArray array = reader.readArray();
